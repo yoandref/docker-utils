@@ -1,0 +1,30 @@
+Para executar um container:
+   docker container run <nome_imagem>
+   exemplo: docker container run hello-world
+
+   #executar dando um nome para o container
+   docker container run --name <nome_container> <nome_imagem> 
+   exemplo: docker run --name meu_container hello-world
+
+   #executar em background
+   docker container run -d <nome_imagem>
+   exemplo: docker run -d nginx
+
+Para listar os containers em execução:
+   docker container ls 
+   docker container ls -a #para listar todos os containers, incluindo os não ativos
+
+Para deletar um container:
+   docker container rm <id_container> | <nome_container>
+   exemplo: docker container rm 7dbd84d78f9c
+
+Para criar o container e interagir com o container:
+   docker container run -it <nome_image> <comando para inicializar>
+   exemplo: docker container run -it ubuntu /bin/bash  
+
+Para interagir com um container já criado:
+   docker exec -it <id_container> | <nome_imagem> <comando>
+   exemplo: docker exec -it 989a206486d0 /bin/bash   
+
+
+
