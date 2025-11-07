@@ -13,10 +13,14 @@ Para executar um container:
 Para listar os containers em execução:
    docker container ls 
    docker container ls -a #para listar todos os containers, incluindo os não ativos
+   docker container ls -qa #para listar somente os IDs do container
 
 Para deletar um container:
    docker container rm <id_container> | <nome_container>
    exemplo: docker container rm 7dbd84d78f9c
+
+   #para deletar todos os containers
+   docker container rm -f $(docker container ls -qa)
 
 Para criar o container e interagir com o container:
    docker container run -it <nome_image> <comando para inicializar>
@@ -29,4 +33,20 @@ Para interagir com um container já criado:
 Para mapear portas entre o host e o container:
    docker container run -d -p <port_host>:<port_container> <nome_imagem>
    exemplo: docker container run -d -p 8080:80 nginx
+
+Para parar um container:
+   docker container stop <id_container>
+   exemplo: docker container stop 9704316588b1
+
+Para iniciar um container parado:
+   docker container start <id_container>
+   exemplo: docker container start 9704316588b1
+
+Para ver os logs da execução dos containers:
+   docker logs <id_container>
+   exemplo: docker logs 9704316588b1
+
+Para executar um container que utiliza variáveis de ambiente:
+   docker container run -d -p <port:host>:<port_container> -e <NOME_VARIÁVEL>=<VALOR_VARIÁVEL>
+   exemplo: docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD="root123" -e MYSQL_DATABASE=auladocker -e MYSQL_USER=userdocker -e MYSQL_PASSWORD=auladocker mysql
 
