@@ -26,5 +26,7 @@ Para interagir com um container já criado:
    docker exec -it <id_container> | <nome_imagem> <comando>
    exemplo: docker exec -it 989a206486d0 /bin/bash   
 
-
+Para mapear portas entre o host e o container:
+   docker container run -d -p <port_host>:<port_container> <nome_imagem>
+   exemplo: docker container run -d -p 8080:80 nginx
 
