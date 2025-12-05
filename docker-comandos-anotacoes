@@ -50,3 +50,22 @@ Para executar um container que utiliza variáveis de ambiente:
    docker container run -d -p <port:host>:<port_container> -e <NOME_VARIÁVEL>=<VALOR_VARIÁVEL>
    exemplo: docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD="root123" -e MYSQL_DATABASE=auladocker -e MYSQL_USER=userdocker -e MYSQL_PASSWORD=auladocker mysql
 
+Para executar um dockerfile:
+   docker build -t <nome-arquivo> -f Arquivo <contexto>
+   exemplo: docker build -t ubuntu-curl -f Dockerfile .
+
+Comandos dockerfile:
+   FROM: inicializa o build de uma imagem a partir de uma imagem base
+   RUN: executa um comando
+   WORKDIR: define o seu diretório corrente
+   COPY: copia arquivos ou diretórios e adiciona ao sistema de arquivos da imagem
+   ADD: copia arquivos ou diretórios ou arquivos remotos e adiciona ao sistema de arquivos da imagem
+   LABEL: adiciona metadados a imagem
+   ENV: define variáveis de ambiente
+   VOLUME: define volumes que devem ser definidos
+   ARG: define um argumento para ser usado no processo de construção
+   EXPOSE: define que o container precisa expor a porta em questão
+   USER: define o usuário que vai ser usado
+   CMD: define o comando e/ou os parêmtros padrão
+   ENTRYPOINT: ajuda você a configurar um container que pode ser executado como um executável
+   
